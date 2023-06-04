@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Notebook2.ViewModel.notes>
+@using Microsoft.AspNet.Identity;﻿
+@{
+    ViewData["Title"] = "Index";
+}
+ <style>
+    h1 {
+        line-height: 60%;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+     </style>
+
+<h1 align="center">Главная</h1>
+<h1>Завтра у вас</h1>
+<!DOCTYPE html>
+<p>
+@foreach (var item in Model)
+{
+    @if (item.date == DateTime.Today.AddDays(1) & item.iduser == @User.Identity.GetUserId<int>())
+    {
+        @Html.ActionLink(item.note, "Details" ,"Notes", new { id = item.idnote })
+
+        <br>
+    }
+}
+</p>
+
+<p>
+    <a asp-action="Create">Новая заметка</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            @if (item.iduser == @User.Identity.GetUserId<int>())
+            {
+                <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idnote">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.idnote">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.idnote">Удалить</a>
+            </td>
+        </tr>
+        }
+}
+    </tbody>
+</table>
