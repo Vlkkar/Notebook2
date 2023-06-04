@@ -19,7 +19,7 @@
 <p>
 @foreach (var item in Model)
 {
-    @if (item.date == DateTime.Today.AddDays(1) & item.iduser == @User.Identity.GetUserId<int>())
+    @if (DateOnly.FromDateTime(item.date) == DateOnly.FromDateTime(DateTime.Today.AddDays(1)) & item.iduser == @User.Identity.GetUserId<int>())
     {
         @Html.ActionLink(item.note, "Details" ,"Notes", new { id = item.idnote })
 
