@@ -3,18 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
- <style>
-    h1 {
-        line-height: 60%;
-    }
+<head>
+    <link rel="stylesheet" href="~/css/IndexNotes.css" asp-append-version="true" />
+</head>
 
-    p {
-        line-height: 1.5;
-    }
-     </style>
 
 <h1 align="center">Главная</h1>
-<h1>Завтра у вас</h1>
+<h2>Завтра у вас</h2>
+
 <!DOCTYPE html>
 <p>
 @foreach (var item in Model)
@@ -31,42 +27,48 @@
 <p>
     <a asp-action="Create">Новая заметка</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-            @if (item.iduser == @User.Identity.GetUserId<int>())
+
+<div class="table-wrapper">
+    <table class="table">
+        <thead>
+            <tr style="border-bottom-width: 2px; border-bottom-color:black;">
+                <th>
+                    @Html.DisplayNameFor(model => model.note)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
             {
-                <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.idnote">Изменить</a> |
-                <a asp-action="Details" asp-route-id="@item.idnote">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.idnote">Удалить</a>
-            </td>
-        </tr>
-        }
-}
-    </tbody>
-</table>
+                @if (item.iduser == @User.Identity.GetUserId<int>())
+                {
+                    <tr style="border-bottom-color: black;">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.note)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.idnote">Изменить</a> |
+                            <a asp-action="Details" asp-route-id="@item.idnote">Детали</a> |
+                            <a asp-action="Delete" asp-route-id="@item.idnote">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,0 +1,19 @@
+.table-wrapper {
+    overflow-x: auto !important;
+}
+
+.table {
+    min-width: 100% !important;
+}
+h1 {
+    line-height: 60%;
+    margin-bottom: 15px;
+    margin-top: -10px;
+}
+
+p {
+    line-height: 1.5;
+}
+tr2 {
+    border-bottom-color: black !important;
+}

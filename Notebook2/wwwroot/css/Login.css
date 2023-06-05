@@ -1,0 +1,12 @@
+﻿.form-group {
+    margin-top: 5px !important;
+}
+.input-box{
+    display:flex;
+    align-items:center;
+}
+.input-box img{
+    /*align-items:center;*/
+    width:33px;
+    cursor: pointer;
+}

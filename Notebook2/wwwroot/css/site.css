@@ -14,7 +14,10 @@ html {
 }
 
 body {
-    background-image: url("webj.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #FFDD64;
+    overflow-y: auto;
+    padding-bottom: 80px; /* высота footer */
+    /*background-image: url("webj.png");*/
+    /*background-size: cover;
+    background-repeat: no-repeat;*/
 }

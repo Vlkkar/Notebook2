@@ -10,6 +10,8 @@ namespace Notebook2.ViewModel
 
         [Display(Name = "Запись")]
         public string? note { get; set; }
+
+        [Required(ErrorMessage ="Поле Дата обязательное для заполнения")]
         [Display(Name = "Дата")]
         public DateTime date { get; set; }
 

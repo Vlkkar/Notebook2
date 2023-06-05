@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\css\IndexNotes.css" />
     <Content Remove="wwwroot\Index.cshtml.css" />
   </ItemGroup>
 
@@ -19,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\IndexNotes.css" />
     <None Include="wwwroot\css\IndexHome.css" />
   </ItemGroup>
 

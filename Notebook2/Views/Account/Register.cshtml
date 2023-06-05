@@ -4,12 +4,16 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
+<head>
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+</head>
 
-<h4>RegisterViewModel</h4>
-<hr />
+<h1 class ="text-center">Регистрация</h1>
+
+<h5 class="text-center">Для регистрации необходимо ввести ФИО и придумать логин с паролем</h5>
+<hr class="col-md-4 mx-auto />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 mx-auto">
         <form asp-action="Register">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -29,7 +33,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+
+                <div class="input-box">
+                    <input asp-for="Password" class="form-control" id="password" />
+                    <img src="~/css/eye-close.png" id="eyeicon" />
+                </div>
+
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -39,7 +48,22 @@
     </div>
 </div>
 
-<div>
+<div class="text-center">
     <a asp-action="Index">Вернуться на главную</a>
 </div>
 
+
+<script>
+    let eyeicon = document.getElementById("eyeicon")
+    let password = document.getElementById("password")
+    eyeicon.onclick = function () {
+        if (password.type == "password") {
+            password.type = "text";
+            eyeicon.src = "/css/eye.png"
+        }
+        else {
+            password.type = "password";
+            eyeicon.src = "/css/eye-close.png"
+        }
+    }
+</script>
