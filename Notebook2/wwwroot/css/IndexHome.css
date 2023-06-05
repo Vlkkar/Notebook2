@@ -3,3 +3,7 @@ body {
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+.title span {
+        padding: 0 10px;
+        background: rgba(37,219,237,0.8);
+}
