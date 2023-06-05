@@ -24,10 +24,10 @@ a {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top-color: black !important;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #1a0101;
 }
 
 .box-shadow {

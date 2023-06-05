@@ -7,12 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Index.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Views\notes\web.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Views\Home\web.png" />
     <Content Include="Views\notes\web.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\IndexHome.css" />
   </ItemGroup>
 
   <ItemGroup>
