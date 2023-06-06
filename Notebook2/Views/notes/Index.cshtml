@@ -9,13 +9,13 @@
 
 
 <h1 align="center">Главная</h1>
-<h2>Завтра у вас</h2>
+<h2>Ближайщие события</h2>
 
 <!DOCTYPE html>
 <p>
 @foreach (var item in Model)
 {
-    @if (DateOnly.FromDateTime(item.date) == DateOnly.FromDateTime(DateTime.Today.AddDays(1)) & item.iduser == @User.Identity.GetUserId<int>())
+    @if (DateOnly.FromDateTime(item.date) <= DateOnly.FromDateTime(DateTime.Today.AddDays(1)) & item.iduser == @User.Identity.GetUserId<int>())
     {
         @Html.ActionLink(item.note, "Details" ,"Notes", new { id = item.idnote })
 
