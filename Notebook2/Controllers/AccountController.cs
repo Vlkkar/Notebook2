@@ -36,6 +36,8 @@ namespace Notebook2.Controllers
             var result = await repository.RegisterData(model);
             if (result.resultCode == 201)
             {
+                TempData["SuccessMessage"] = "Регистрация прошла успешно!";
+                return View();
                 return Redirect("/"); //redirect to login form
             }
             else

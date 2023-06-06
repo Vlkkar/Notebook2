@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
 </head>
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success col-md-4 mx-auto text-center">@TempData["SuccessMessage"]</div>
+}
+
 <h1 class ="text-center">Регистрация</h1>
 
 <h5 class="text-center">Для регистрации необходимо ввести ФИО и придумать логин с паролем</h5>
